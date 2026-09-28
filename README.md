@@ -31,6 +31,30 @@ The complete preprocessing, feature construction, model training, DTW-based samp
 
 `notebooks/building_energy_consumption_forecasting.ipynb`
 
+## Methodology
+
+The experiments compare two building energy consumption forecasting strategies based on Support Vector Regression (SVR):
+
+1. **Baseline SVR** — the model is trained using the available historical observations without similarity-based sample selection.
+2. **DTW + SVR** — Dynamic Time Warping (DTW) is used to identify historical days with similar temperature profiles, and the selected observations are then used to train the SVR model.
+
+For the DTW-based approach, one target day is selected for each month. The 24-hour temperature profile of the target day is compared with the temperature profiles of other complete days using DTW. The 12 historical days with the smallest DTW distances are selected as the training sample for that target day.
+
+The models use meteorological, temporal, and lagged energy consumption features. The exact feature representation varies between the two buildings according to the implementation in the notebook.
+
+Before SVR training, the input features are standardized using `StandardScaler`. The regression model uses an RBF kernel.
+
+Performance is evaluated using:
+
+- **Root Mean Squared Error (RMSE)**
+- **Mean Absolute Error (MAE)**
+
+For the baseline approach, the metrics are calculated over the chronological test set. For the DTW-based approach, RMSE and MAE are calculated independently for each of the 12 monthly target days and subsequently summarized using their mean and standard deviation.
+
+The complete implementation of the methodology is available in:
+
+`notebooks/building_energy_consumption_forecasting.ipynb`
+
 ## Reproduction
 
 The experiments in this repository are implemented in the notebook
