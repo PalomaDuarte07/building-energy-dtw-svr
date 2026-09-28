@@ -1,6 +1,36 @@
 # building-energy-dtw-svr
 Reproducible materials for building energy consumption forecasting using SVR and Dynamic Time Warping.
 
+## Data
+
+The experiments use data from the Building Data Genome Project (BDG), a public dataset containing hourly building energy consumption measurements, building metadata, and associated weather data.
+
+The repository includes the raw data files required by the notebook. The files used in the experiments are organized as follows:
+
+| File | Description | Role in the experiments |
+|---|---|---|
+| `meta_open.csv` | Building metadata | Used to identify buildings and their associated information. |
+| `temp_open_utc.csv` | Hourly temperature data | Provides the temperature measurements used as the main weather variable in the forecasting models and DTW-based similarity analysis. |
+| `weather13.csv` | Weather data associated with Office Dawn | Used to obtain the meteorological information for the `Office_Dawn` experiments. |
+| `weather3.csv` | Weather data associated with UnivDorm Malachi | Used to obtain the meteorological information for the `UnivDorm_Malachi` experiments. |
+
+Two buildings from the dataset were selected for the experiments:
+
+- **Office Dawn** — an office building.
+- **UnivDorm Malachi** — a university dormitory.
+
+The energy consumption measurements are represented as hourly time series. The weather data are processed and aligned with the corresponding energy consumption records before feature construction and model training.
+
+The experiments primarily use outdoor temperature as the meteorological variable. Additional temporal and lagged energy consumption features are constructed directly in the notebook.
+
+### Data availability
+
+The raw data files used by the experiments are included in this repository to support reproducibility. The file `temp_open_utc.csv` is tracked using [Git LFS](https://git-lfs.com/) because of its size.
+
+The complete preprocessing, feature construction, model training, DTW-based sample selection, and evaluation procedures are implemented in:
+
+`notebooks/building_energy_consumption_forecasting.ipynb`
+
 ## Reproduction
 
 The experiments in this repository are implemented in the notebook
@@ -105,32 +135,3 @@ Mean MAE: **8.9383**
 RMSE standard deviation: **7.0173**  
 MAE standard deviation: **6.3800**
 
-## Data
-
-The experiments use data from the Building Data Genome Project (BDG), a public dataset containing hourly building energy consumption measurements, building metadata, and associated weather data.
-
-The repository includes the raw data files required by the notebook. The files used in the experiments are organized as follows:
-
-| File | Description | Role in the experiments |
-|---|---|---|
-| `meta_open.csv` | Building metadata | Used to identify buildings and their associated information. |
-| `temp_open_utc.csv` | Hourly temperature data | Provides the temperature measurements used as the main weather variable in the forecasting models and DTW-based similarity analysis. |
-| `weather13.csv` | Weather data associated with Office Dawn | Used to obtain the meteorological information for the `Office_Dawn` experiments. |
-| `weather3.csv` | Weather data associated with UnivDorm Malachi | Used to obtain the meteorological information for the `UnivDorm_Malachi` experiments. |
-
-Two buildings from the dataset were selected for the experiments:
-
-- **Office Dawn** — an office building.
-- **UnivDorm Malachi** — a university dormitory.
-
-The energy consumption measurements are represented as hourly time series. The weather data are processed and aligned with the corresponding energy consumption records before feature construction and model training.
-
-The experiments primarily use outdoor temperature as the meteorological variable. Additional temporal and lagged energy consumption features are constructed directly in the notebook.
-
-### Data availability
-
-The raw data files used by the experiments are included in this repository to support reproducibility. The file `temp_open_utc.csv` is tracked using [Git LFS](https://git-lfs.com/) because of its size.
-
-The complete preprocessing, feature construction, model training, DTW-based sample selection, and evaluation procedures are implemented in:
-
-`notebooks/building_energy_consumption_forecasting.ipynb`
