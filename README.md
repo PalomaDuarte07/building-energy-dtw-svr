@@ -159,3 +159,21 @@ Mean MAE: **8.9383**
 RMSE standard deviation: **7.0173**  
 MAE standard deviation: **6.3800**
 
+## Results
+
+The experiments compare the Baseline SVR model with the DTW + SVR approach for two buildings: Office Dawn and UnivDorm Malachi.
+
+The results below correspond to the outputs recorded in the notebook. For the baseline, the metrics are calculated over the chronological test set. For DTW + SVR, the reported values are the mean and standard deviation across the 12 monthly target-day experiments.
+
+| Building         | Method       |  RMSE |   MAE | RMSE Std. | MAE Std. |
+| ---------------- | ------------ | ----: | ----: | --------: | -------: |
+| Office Dawn      | Baseline SVR | 22.49 | 15.01 |         — |        — |
+| Office Dawn      | DTW + SVR    | 56.48 | 47.27 |     17.69 |    16.04 |
+| UnivDorm Malachi | Baseline SVR |  7.98 |  6.10 |         — |        — |
+| UnivDorm Malachi | DTW + SVR    | 10.41 |  8.94 |      7.02 |     6.38 |
+
+In both buildings, the Baseline SVR achieved lower RMSE and MAE than the DTW + SVR approach. The difference was particularly pronounced for Office Dawn, while the results for UnivDorm Malachi were closer.
+
+These results suggest that selecting historical days based only on temperature-profile similarity was not sufficient to improve forecasting performance in the evaluated scenarios. Other factors, such as building occupancy and operational patterns, may also influence energy consumption, but these factors were not directly measured in this experiment.
+
+The results should be interpreted in the context of the two selected buildings and the specific experimental procedure implemented in the notebook.
