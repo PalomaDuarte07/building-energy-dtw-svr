@@ -1,6 +1,21 @@
 # building-energy-dtw-svr
 Reproducible materials for building energy consumption forecasting using SVR and Dynamic Time Warping.
 
+## Getting Started
+
+The notebook can be opened directly in Google Colab using the following link:
+
+[Open the notebook in Google Colab](https://colab.research.google.com/github/PalomaDuarte07/building-energy-dtw-svr/blob/main/notebooks/building_energy_consumption_forecasting.ipynb)
+
+### Before running the notebook
+
+1. Download or obtain all the required dataset files listed in the [Data](#data) section.
+2. Open the notebook in Google Colab.
+3. Run the data upload cell and select the dataset files from your computer.
+4. Execute the remaining notebook cells sequentially, from top to bottom, since some cells depend on variables defined in previous cells.
+
+Make sure all required files are available before running the experiments.
+
 ## Data
 
 The experiments use data from the Building Data Genome Project (BDG), a public dataset containing hourly building energy consumption measurements, building metadata, and associated weather data.
