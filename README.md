@@ -16,8 +16,8 @@ The repository includes the raw data files required by the notebook. The files u
 
 Two buildings from the dataset were selected for the experiments:
 
-- **Office Dawn** — an office building.
-- **UnivDorm Malachi** — a university dormitory.
+- **Office Dawn** : an office building.
+- **UnivDorm Malachi** : a university dormitory.
 
 The energy consumption measurements are represented as hourly time series. The weather data are processed and aligned with the corresponding energy consumption records before feature construction and model training.
 
@@ -35,8 +35,8 @@ The complete preprocessing, feature construction, model training, DTW-based samp
 
 The experiments compare two building energy consumption forecasting strategies based on Support Vector Regression (SVR):
 
-1. **Baseline SVR** — the model is trained using the available historical observations without similarity-based sample selection.
-2. **DTW + SVR** — Dynamic Time Warping (DTW) is used to identify historical days with similar temperature profiles, and the selected observations are then used to train the SVR model.
+1. **Baseline SVR** : the model is trained using the available historical observations without similarity-based sample selection.
+2. **DTW + SVR** : Dynamic Time Warping (DTW) is used to identify historical days with similar temperature profiles, and the selected observations are then used to train the SVR model.
 
 For the DTW-based approach, one target day is selected for each month. The 24-hour temperature profile of the target day is compared with the temperature profiles of other complete days using DTW. The 12 historical days with the smallest DTW distances are selected as the training sample for that target day.
 
